@@ -1,12 +1,18 @@
 #!/bin/bash
 
-# pp4p = prepare pic for posting
+# pp4p = Prepare Pic For Posting
+
+### Config defaults Local personalisations should go in ~/.pp4p.conf
+size=1000       # image will be sized down so longest edge matches this. 
+
+
+# configuration file for personalisation. 
+# Create this file from scratch by copying the Config block above. 
+[ -e ~/.pp4p.conf ] && source ~/.pp4p.conf
 
 
 ### TODO 
-# change size default
 # add a "final thing" function (default to nothing)
-# add config file that can override the aboves
 # add switches for
 # * interactive mode (prompt each step to proceed and size)
 #   ...even prompt per-exif data
@@ -40,7 +46,7 @@ esac
 # from discussion and doco...
 # https://www.imagemagick.org/discourse-server/viewtopic.php?t=13175
 # http://www.imagemagick.org/Usage/resize/#resize
-convert "$MIDFILE" -resize "1000x1000>" "${OUT}.jpg"
+convert "$MIDFILE" -resize "${size}x${size}>" "${OUT}.jpg"
 
 # apply watermark
 # * convert (resize and watermark (-composite)
