@@ -14,8 +14,8 @@ size=1000       # image will be sized down so longest edge matches this.
 ### TODO 
 # add a "final thing" function (default to nothing)
 # add switches for
-# * interactive mode (prompt each step to proceed and size)
-#   ...even prompt per-exif data
+# * interactive mode (prompt for settings and whether to proceed at each step)
+#   ...even prompt per-exif data / complete exif data edit
 
 IN=$1
 TMP=__$RANDOM
@@ -40,8 +40,10 @@ case $suffix in
 esac
 
 ### RESIZE
+#
 # resize to 50%
-#convert -geometry 50% $TMP.jpg ${OUT}.jpg
+#convert -geometry 50% $MIDFILE ${OUT}.jpg
+#
 # smartly resize (but shrink only) so longest edge is 1000 pixels
 # from discussion and doco...
 # https://www.imagemagick.org/discourse-server/viewtopic.php?t=13175
