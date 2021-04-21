@@ -41,16 +41,20 @@ esac
 
 ### RESIZE
 #
-# resize to 50%
-#convert -geometry 50% $MIDFILE ${OUT}.jpg
-#
-# smartly resize (but shrink only) so longest edge is 1000 pixels
+case $size in
+    *%)     # $size detected as a percentage
+        convert -geometry $size $MIDFILE ${OUT}.jpg
+        ;;
+    *)      # assume $size is a number, therefore...
+# smartly resize (but shrink only) so longest edge is $size pixels
 # from discussion and doco...
 # https://www.imagemagick.org/discourse-server/viewtopic.php?t=13175
 # http://www.imagemagick.org/Usage/resize/#resize
-convert "$MIDFILE" -resize "${size}x${size}>" "${OUT}.jpg"
+        convert "$MIDFILE" -resize "${size}x${size}>" "${OUT}.jpg"
+        ;;
+esac
 
-# apply watermark
+### WATERMARK
 # * convert (resize and watermark (-composite)
 
 # http://www.imagemagick.org/Usage/annotating/#watermarking
