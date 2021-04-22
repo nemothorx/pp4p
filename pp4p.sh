@@ -17,6 +17,11 @@ size=1000       # image will be sized down so longest edge matches this.
 # * interactive mode (prompt for settings and whether to proceed at each step)
 #   ...even prompt per-exif data / complete exif data edit
 
+if [ "$1" == "-i" ] ; then
+    cat ~/.pp4p.conf
+    exit
+fi
+
 IN=$1
 TMP=__$RANDOM
 OUT=${IN%.*}_export
