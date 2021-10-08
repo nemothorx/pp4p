@@ -71,4 +71,5 @@ esac
 
 rm -f "$TMP.jpg"*
 
+touch -r $IN "${OUT}"*
 ls -roth "$IN" "$OUT"*
