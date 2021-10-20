@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# TODO: consider changing behaviour to accept multiple files.
+# (which aligns more closely with my usage)
 [ -z "$1" ] && echo "usage: $0 file.HEIC [resizepct (\"thumb\"=10)]" && exit 1
 
 # [ -n "$2" ] && echo "usage: $0 file.HEIC [resizepct (\"thumb\"=10)]" && exit 2
